@@ -1,0 +1,41 @@
+{% extends 'Master/master.html' %}
+{% load static %} 
+
+{% block title %}
+<title>Login</title>
+<link rel="stylesheet" href="{% static 'css/Login/SignupAuthentication.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div id="main" class="main-container mt-3 mb-3">              
+    <div class="box">
+        <form method="POST">
+    {% csrf_token %}    
+    {% if messages %}
+          <div class="alert alert-primary"role="alert">            
+            {% for i in messages %}
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{i}} 
+            {% endfor %}           
+          </div>
+    {% endif %}
+      <h2 class="FontGreyChateau">OTP For Register</h2>      
+        <div class="input-box">
+          <input id="otp" type="text" name="otp" maxlength="4" onblur="isRule(this, objWholeNumber)" onkeyup="isRule(this, objWholeNumber)">
+          <label>OTP</label>
+        </div>        
+        <button class="btn btnSubmit">Submit</button>
+    </form>
+    </div>
+</div>
+    
+<div id="logged-in">
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/Login/SignupAuthentication.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'Master/master.html' %}
+{% load static %} 
+
+{% block title %}
+<title>Login</title>
+<link rel="stylesheet" href="{% static 'css/Login/login.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+{% comment %} <div class="head mt-5">
+    <div class="container">
+        <div class="title">
+            <h1>Login!</h1>
+        </div>
+    </div>
+</div>
+
+<div class="content mb-5">
+    <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="email">
+                    <label for="email">E-mail/Number:</label>
+                    <div class="clear"></div>
+                    <input type="text" name="email" id="email" placeholder="example@gmail.com" required>
+                </div>                
+                <div class="pass">
+                    <label for="pass">Password:</label>
+                    <div class="clear"></div>
+                    <input type="password" name="password" id="pass" placeholder="enter password" required>
+                </div>                
+                <div class="submit">
+                    <button class="btn btnSubmit">Submit</button>
+                </div>
+            </form>
+    </div>
+</div> {% endcomment %}
+
+<div id="main" class="main-container mt-3 mb-3">
+
+    {% if messages %}
+          <div class="alert alert-primary"role="alert">            
+            {% for i in messages %}
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{i}} 
+            {% endfor %}           
+          </div>
+    {% endif %}          
+    <div class="box">
+      <h2 class="FontGreyChateau">Login</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="input-box">
+          <input id="email" type="text" name="email" onblur="isRule(this, objEmailAsUsername)" onkeyup="isRule(this, objEmailAsUsername)" x-webkit-speech>
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <input id="pass" type="password" name="password">
+          <label>Password</label>
+        </div>
+        <button class="btn btnSubmit">Submit</button>
+      </form>
+      <p><a href="{% url 'forgotpassword' %}">Forgot password?</a></p>
+      <p><a href="{% url 'register' %}">Register</a></p>
+    </div>
+</div>
+    
+<div id="logged-in">
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/Login/login.js' %}"></script>
+{% endblock %}

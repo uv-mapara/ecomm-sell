@@ -1,0 +1,27 @@
+.billing-info-wrap .billing-info input {
+    border-color:#03a9f4 !important;
+}
+.billing-info-wrap .billing-select select{
+    border-color:#03a9f4!important;
+}
+.your-order-area .Place-order button {
+    background-color: #03a9f4!important;
+    color: #fff;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1;
+    padding: 18px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 0;
+    z-index: 9;
+    width: 100%;
+}
+.your-order-area .your-order-wrap {
+    padding: 38px 45px 44px;
+    background: #edebeb !important;
+}
+.cashradio{
+    height:20px !important;
+}

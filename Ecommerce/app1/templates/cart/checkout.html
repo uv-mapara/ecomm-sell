@@ -1,0 +1,207 @@
+{% extends 'Master/master.html' %}
+{% load mathfilters %}
+{% load static %}
+
+{% block title %}        
+      <title>Checkout</title>
+      <link rel="stylesheet" href="{% static 'assets/css/plugins.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/cart/checkout.css' %}">
+{% endblock %}
+
+{% block content %}    
+
+    <!-- checkout area start -->
+<div>    
+    <div class="checkout-area pt-100px pb-100px">
+        <div class="container">
+            <div class="row">                
+                <div class="col-lg-7">
+                    <div class="billing-info-wrap">
+                        <h3 class="text-dark">Billing Details</h3>
+                        <div class="row"> 
+                            {% csrf_token %} 
+                            <div class="col-lg-12 col-md-6">
+                                <div id="DivDisplayMsg" style="display: none;">
+                                    <button class="close" data-close="alert"></button>
+                                    <span id="SpnMsgHeader"></span>
+                                    <span id="SpnErrorMsg"></span>
+                                </div>
+                            </div>                          
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Username</label>
+                                    <input type="text" value="{{form.firstname}}" name="firstname" id="firstname" readonly/>
+                                    <input type="text" value="{{order_id}}" name="order_id" id="order_id" hidden/> 
+                                    <input value="{{total}}" name="amount" id="amount" hidden>                                   
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Last Name</label>
+                                    <input type="text" value="{{form.lastname}}" name="lastname" id="lastname" readonly/>
+                                    <input value="{{payment}}" name="payment" id="payment" hidden/>
+                                </div>
+                            </div>                            
+                            <div class="col-lg-12">
+                                <div class="billing-select mb-4">
+                                    <label>Country</label>
+                                    <select name="country" id="country">
+                                        <option value="0">-- Select Country --</option>
+                                        <option value="1">Azerbaijan</option>
+                                        <option value="2">Bahamas</option>
+                                        <option value="3">Bahrain</option>
+                                        <option value="4">Bangladesh</option>
+                                        <option value="5">Barbados</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="billing-info mb-4">
+                                    <label>Street Address</label>
+                                    <input type="text" class="billing-address" placeholder="House number and street name" name="address" id="address" />
+                                    <input type="text" placeholder="Apartment, suite, unit etc." name="address" id="address" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="billing-info mb-4">
+                                    <label>Town / City</label>
+                                    <input type="text" name="city" id="city"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>State</label>
+                                    <input type="text" name="state" id="state"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Postcode / ZIP</label>
+                                    <input type="text" name="postcode" id="postcode" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Phone</label>
+                                    <input type="text" name="phone" id="phone" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Email Address</label>
+                                    <input type="text" value={{form.email}} name="email" id="email" readonly   />
+                                </div>
+                            </div>
+                            <!--<div class="col-lg-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row billing-info mb-4">
+                                            <div class="col-md-2">
+                                                <input type="radio" name="PaymentType" id="COD"   />
+                                            </div> 
+                                            <label class="col-md-6 mt-2">Cash On Delivery</label>                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row billing-info mb-4">
+                                            <div class="col-md-2">
+                                                <input type="radio" name="PaymentType" id="Online"   />
+                                            </div> 
+                                            <label class="col-md-6 mt-2">Online Payment</label>                                            
+                                        </div>
+                                    </div>
+                                </div>                                                                
+                            </div>-->                                                                                  
+                        </div>                                                                       
+                    </div>
+                </div>                
+                <div class="col-lg-5 mt-md-30px mt-lm-30px ">
+                    <div class="your-order-area">
+                        <h3 class="text-dark">Your order</h3>
+                        <div class="your-order-wrap gray-bg-4">                            
+                            <div class="your-order-product-info">
+                                <div class="your-order-top">
+                                    <ul>
+                                        <li>Product</li>
+                                        <li>Total</li>
+                                    </ul>
+                                </div>
+                                <div class="your-order-middle">
+                                    <ul>
+                                        {% for p in al %}                                        
+                                        <li><span class="order-middle-left">{{p.product.name}} X {{p.quantity}}</span> <span
+                                            class="order-price">₹{{p.product.price|mul:p.quantity}} </span></li> 
+                                        {% endfor %}                                       
+                                    </ul>
+                                </div>
+                                <div class="your-order-bottom">
+                                    <ul>
+                                        <li class="your-order-shipping">Shipping Charge</li>
+                                        <li>Free</li>
+                                    </ul>
+                                </div>
+                                <div class="your-order-total">
+                                    <ul>                                        
+                                        <li class="order-total">Total</li>
+                                        <li class="totalamount" id="totalamount">₹{{total}}</li>                                        
+                                    </ul>
+                                </div>
+                            </div>                            
+                            <div class="payment-method">
+                                <div class="payment-accordion element-mrg">
+                                    <div id="faq" class="panel-group">
+                                        <div class="panel panel-default single-my-account m-0">
+                                            <div class="panel-heading my-account-title">
+                                                <h4 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1" class="collapsed" aria-expanded="true">Direct bank transfer</a>
+                                                </h4>
+                                            </div>
+                                            <div id="my-account-1" class="panel-collapse collapse show" data-bs-parent="#faq">
+                                                <div class="panel-body">
+                                                    <p>Please send a check to Store Name, Store Street, Store Town,
+                                                        Store State / County, Store Postcode.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default single-my-account m-0">
+                                            <div class="panel-heading my-account-title">
+                                                <h4 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-2" aria-expanded="false" class="collapsed">Check payments</a></h4>
+                                            </div>
+                                            <div id="my-account-2" class="panel-collapse collapse" data-bs-parent="#faq">
+                                                <div class="panel-body">
+                                                    <p>Please send a check to Store Name, Store Street, Store Town,
+                                                        Store State / County, Store Postcode.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default single-my-account m-0">
+                                            <div class="panel-heading my-account-title">
+                                                <h4 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-3">Cash on delivery</a></h4>
+                                            </div>
+                                            <div id="my-account-3" class="panel-collapse collapse" data-bs-parent="#faq">
+                                                <div class="panel-body">
+                                                    <p>Please send a check to Store Name, Store Street, Store Town,
+                                                        Store State / County, Store Postcode.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Place-order mt-25">
+                            <button type="submit" class="text-light btnsubmit" id="btnSubmit">Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- checkout area end -->
+{% endblock %}
+
+{% block javascript %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="{% static 'js/cart/checkout.js' %}"></script>
+{% endblock %}

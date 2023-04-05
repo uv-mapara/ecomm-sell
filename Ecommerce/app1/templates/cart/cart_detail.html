@@ -1,0 +1,83 @@
+{% extends 'Master/master.html' %}
+{% load mathfilters %}
+{% load static %}
+
+    {% block title %}        
+      <title>MyCart</title>
+      <link rel="stylesheet" href="{% static 'css/cart/cart_detail.css' %}">
+    {% endblock %}
+
+{% block content %}
+<div class="card mt-5 mb-5">
+  <div class="row">
+      <div class="col-md-8 cart">
+          <div class="title">
+              <div class="row">
+                  <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                  <div class="col align-self-center text-right text-muted">{{al|length}} items</div>
+              </div>
+          </div>
+
+          {% if messages %}
+          <div class="alert alert-primary" id="msg" role="alert">
+            {% for i in messages %}
+            {{i}}
+            {% endfor %}
+          </div>
+          {% endif %}
+          
+          <form action='/showmycart/' method="POST">
+          {% for p in al %}  
+          <div class="row product_data border-top border-bottom">
+              <div class="row main align-items-center">
+                  <div class="col-md-2 col-4"><img class="img-fluid" src="{{p.product.image.url}}"></div>
+                  <div class="col-md-4 col-8">
+                      <div class="row text-muted">{{p.product.categories}}</div>
+                      <div class="row">{{p.product.name}}</div>
+                  </div>                  
+                  <div class="col-md-3 col-6">                                        
+                    {% csrf_token %}
+                    <label for="Qauntity">Quantity</label>                                                            
+                    <div class="input-group text-center">
+                        <a href="{% url 'cart_remove' p.id %}"><i class="fa fa-minus cart_icon"></i></a>                        
+                       <input type="text" name="quantity" class="form-control qty-input text-center" value="{{p.quantity}}">                                              
+                      <a href="{% url 'cart_update' p.id %}"><i class="fa fa-plus cart_icon"></i></a>                      
+                    </div>                                       
+                  </div>                  
+                  <div class="col-md-3 col-6 price">₹{{p.product.price|mul:p.quantity}}<a href="{% url 'deleteitem' p.id %}" class="close">&#10005;</a></div>
+              </div>
+          </div>
+          {% endfor %}
+        </form>
+                  
+          <div class="back-to-shop"><a href="{% url 'product' %}">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+      </div>
+
+      <div class="col-md-4 summary">
+          <div><h5><b>Summary</b></h5></div>
+          <hr>
+          <div class="row">
+              <div class="col" style="padding-left:0;">ITEMS</div>
+              <div class="col text-right">{{al|length}}</div>
+          </div>
+          <form>
+              <p>SHIPPING</p>
+              <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
+              <p>GIVE CODE</p>
+              <input id="code" placeholder="Enter your code">
+          </form>
+          <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+              <div class="col">TOTAL PRICE</div>
+              <div class="col text-right">₹{{total}}</div>
+          </div>
+          <a href="{% url 'checkout' %}"><button class="btn">CHECKOUT</button></a>
+      </div>
+      
+  </div>
+  
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/cart/cart_detail.js' %}"></script>
+{% endblock %}

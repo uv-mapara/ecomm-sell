@@ -1,0 +1,35 @@
+.btn-primary-light {
+    color: #6259ca !important;
+    background: rgba(98, 89, 202,0.2);
+    border-color: rgba(98, 89, 202,0.2);
+}
+.btn-info-light {
+    color: #4c81d2 !important;
+    background: #d0e2f7 !important;
+    border-color: #d0e2f7;
+}
+.btn-danger-light {
+    color: #c16674 !important;
+    background: #f8ccd3 !important;
+    border-color: #f8ccd3;
+}
+.btn-square {
+    padding: 0.55rem 0.5rem;
+    line-height: 1;
+    border-radius: 3px;
+}
+.btn {
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    font-size: 0.8125rem;
+    min-width: 2.375rem;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    width:38px;
+    height: 38px;
+}

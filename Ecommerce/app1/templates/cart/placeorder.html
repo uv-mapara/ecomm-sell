@@ -1,0 +1,94 @@
+{% extends 'Master/master.html' %}
+{% load mathfilters %}
+{% load static %}
+
+{% block title %}        
+      <title>Place Order</title>  
+      <link rel="stylesheet" href="{% static 'css/cart/placeorder.css' %}">    
+{% endblock %}
+
+{% block content %}    
+<div class="card mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col"><h4><b>Shopping Cart</b></h4></div>                
+                    <div class="col align-self-center text-right text-muted">{{al|length}} items</div>                    
+                </div>
+            </div>
+  
+            {% if messages %}
+            <div class="alert alert-primary" id="msg" role="alert">
+              {% for i in messages %}
+              {{i}}
+              {% endfor %}
+            </div>
+            {% endif %}
+            
+            <form action='/showmycart/' method="POST">
+            {% for p in al %}  
+            <div class="row product_data border-top border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-md-2 col-4"><img class="img-fluid" src="{{p.product.image.url}}"></div>
+                    <div class="col-md-4 col-8">
+                        <div class="row text-muted">{{p.product.categories}}</div>
+                        <div class="row">{{p.product.name}}</div>
+                    </div>                  
+                    <div class="col-md-3 col-6">                                        
+                      {% csrf_token %}
+                      <label for="Qauntity">Quantity</label>                                                            
+                      <div class="input-group text-center">                                                   
+                         <a href="javascript:void()">{{p.quantity}}</a>                                                                      
+                      </div>                                       
+                    </div>                  
+                    <div class="col-md-3 col-6 price">₹{{p.product.price|mul:p.quantity}}</div>
+                </div>
+            </div>
+            {% endfor %}
+          </form>
+                    
+            <div class="back-to-shop"><a href="{% url 'product' %}">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+            <div class="back-to-shop placeorder"><a id="rzp-button1">Place Order</a></div>
+        </div>                  
+    </div>    
+  </div> 
+  
+<form action="{% url 'success' %}" method="POST">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_JBDqXZVkdXRDHn", 
+    "amount": "{{total}}", 
+    "currency": "INR",
+    "name": "U R Developer",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "{{order_id}}", 
+    "callback_url": "http://127.0.0.1:8000/cart/checkout/placeorder/success",
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+</form>
+{% endblock %}
+
+
+{% block javascript %}
+<script src="{% static 'js/cart/placeorder.js' %}"></script>
+{% endblock %}
+

@@ -1,0 +1,35 @@
+{% extends 'Master/master.html' %}
+{% load static %}
+
+    {% block title %}        
+      <title>Home</title>
+      <link rel="stylesheet" href="{% static 'css/Master/home.css' %}">
+    {% endblock %}
+
+{% block content %}    
+
+<div class="row mt-3">
+    <div class="col-md-12 col-xs-12">
+        <h4 class="text-center text-dark">All Categories</h4>        
+    </div>
+</div>
+<div class="row mt-5 mb-5">
+    {% for cat in categories %}
+   <div class="col-md-4 col-xs-12">     
+        <div class="card text-white mb-5" style="max-width: 18rem;">
+            <div class="card-header text-center">{{ cat.name }}</div>
+            <div class="card-body">    
+            {% for i in cat.subcategories_set.all %}        
+            <a href="/product/?subcategory={{ cat.id }}" class="text-dark">{{i.name}}<br></a>
+            {% endfor %}            
+            </div>
+        </div>        
+   </div> 
+   {% endfor %}  
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/Master/home.js' %}"></script>
+{% endblock %}

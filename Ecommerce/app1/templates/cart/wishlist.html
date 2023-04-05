@@ -1,0 +1,70 @@
+{% extends 'Master/master.html' %}
+{% load mathfilters %}
+{% load static %}
+
+{% block title %}        
+      <title>Wishlist</title>
+      <link rel="stylesheet" href="{% static 'assets/css/plugins.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/cart/wishlist.css' %}">
+{% endblock %}
+
+{% block content %} 
+<div class="row">
+    {% if messages %}
+    <div class="alert alert-primary"role="alert">            
+        {% for i in messages %}
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{i}}
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="col-xl-12 col-md-12">
+        <div class="card cart">
+            <div class="card-header">
+                <h3 class="card-title text-dark">My Wish List</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-vcenter text-nowrap border">
+                        <thead>
+                            <tr class="border-top">
+                                <th class="w-15">Product</th>
+                                <th class="w-5">Title</th>
+                                <th class="w-15">Price</th>
+                                <th class="w-10">Status</th>
+                                <th class="w-10">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in w %}
+                            <tr>
+                                <td>
+                                    <img src="{{p.product.image.url}}" alt="" class="cart-img">
+                                </td>
+                                <td>{{p.product.name}}</td>
+                                <td class="fw-bold">{{p.product.price}}</td>
+                                <td>
+                                    <span class="badge bg-success">{{Stock}}</span>
+                                </td>
+                                <td>                                    
+                                    <div>                                    
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-info-light btn-square  br-50 m-1" id="{{p.product.pk}}" onclick="SaveAddToCart(this)" data-bs-toggle="tooltip" title="" data-bs-original-title="add to cart"><i class="fa fa-shopping-cart fs-13"></i> </button>
+                                    </div> 
+                                    <button class="btn btn-danger-light btn-square  br-50 m-1" onclick="deleteWishlist(this)" id="{{p.product.pk}}" data-bs-toggle="tooltip" title="" data-bs-original-title="add to cart"><i class="fa fa-trash fs-13"></i> </button>
+                                </td>
+                            </tr> 
+                            {% endfor %}                                                                                                                                                                                             
+                        </tbody>
+                    </table>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/cart/wishlist.js' %}"></script>
+{% endblock %}

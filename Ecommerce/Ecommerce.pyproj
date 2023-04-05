@@ -1,0 +1,283 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>Ecommerce</Name>
+    <RootNamespace>Ecommerce</RootNamespace>
+    <TestFramework>Pytest</TestFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>0dffdf1e-63d8-4559-a305-e2471f3adb32</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>Ecommerce.settings</DjangoSettingsModule>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app1\admin.py" />
+    <Compile Include="app1\apps.py" />
+    <Compile Include="app1\migrations\__init__.py" />
+    <Compile Include="app1\models.py" />
+    <Compile Include="app1\tests.py" />
+    <Compile Include="app1\urls.py" />
+    <Compile Include="app1\views.py" />
+    <Compile Include="app1\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="Ecommerce\__init__.py" />
+    <Compile Include="Ecommerce\settings.py" />
+    <Compile Include="Ecommerce\urls.py" />
+    <Compile Include="Ecommerce\wsgi.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app1\static\assets\css\plugins.min.css" />
+    <Content Include="app1\static\assets\css\style.min.css" />
+    <Content Include="app1\static\assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="app1\static\assets\fonts\Pe-icon-7-strokebb1d.eot" />
+    <Content Include="app1\static\assets\fonts\Pe-icon-7-strokebb1d.svg" />
+    <Content Include="app1\static\assets\fonts\Pe-icon-7-strokebb1d.ttf" />
+    <Content Include="app1\static\assets\fonts\Pe-icon-7-strokebb1d.woff" />
+    <Content Include="app1\static\assets\fonts\Pe-icon-7-stroked41d.eot" />
+    <Content Include="app1\static\assets\images\about\promo-video-img.webp" />
+    <Content Include="app1\static\assets\images\banner\3.webp" />
+    <Content Include="app1\static\assets\images\banner\4.webp" />
+    <Content Include="app1\static\assets\images\banner\5.webp" />
+    <Content Include="app1\static\assets\images\banner\6.webp" />
+    <Content Include="app1\static\assets\images\banner\7.webp" />
+    <Content Include="app1\static\assets\images\banner\8.webp" />
+    <Content Include="app1\static\assets\images\banner\9.webp" />
+    <Content Include="app1\static\assets\images\banner\menu-banner.png" />
+    <Content Include="app1\static\assets\images\blog-image\1.webp" />
+    <Content Include="app1\static\assets\images\blog-image\2.webp" />
+    <Content Include="app1\static\assets\images\blog-image\3.webp" />
+    <Content Include="app1\static\assets\images\blog-image\4.webp" />
+    <Content Include="app1\static\assets\images\blog-image\5.webp" />
+    <Content Include="app1\static\assets\images\blog-image\comment-img-1.webp" />
+    <Content Include="app1\static\assets\images\blog-image\comment-img-2.webp" />
+    <Content Include="app1\static\assets\images\blog-image\comment-img-3.webp" />
+    <Content Include="app1\static\assets\images\blog-image\post-1.webp" />
+    <Content Include="app1\static\assets\images\blog-image\post-2.webp" />
+    <Content Include="app1\static\assets\images\blog-image\post-3.webp" />
+    <Content Include="app1\static\assets\images\blog-image\side-image.webp" />
+    <Content Include="app1\static\assets\images\blog-image\single-blog.webp" />
+    <Content Include="app1\static\assets\images\favicon.ico" />
+    <Content Include="app1\static\assets\images\feature-image\1.webp" />
+    <Content Include="app1\static\assets\images\feature-image\2.webp" />
+    <Content Include="app1\static\assets\images\feature-image\3.webp" />
+    <Content Include="app1\static\assets\images\hero\inner-img\hero-1-1.png" />
+    <Content Include="app1\static\assets\images\hero\inner-img\hero-1-2.png" />
+    <Content Include="app1\static\assets\images\hero\inner-img\hero-2-1.png" />
+    <Content Include="app1\static\assets\images\icons\1.png" />
+    <Content Include="app1\static\assets\images\icons\2.png" />
+    <Content Include="app1\static\assets\images\icons\3.png" />
+    <Content Include="app1\static\assets\images\icons\cmpted_logo.png" />
+    <Content Include="app1\static\assets\images\icons\contact-1.png" />
+    <Content Include="app1\static\assets\images\icons\contact-2.png" />
+    <Content Include="app1\static\assets\images\icons\contact-3.png" />
+    <Content Include="app1\static\assets\images\icons\icon-youtube-play.png" />
+    <Content Include="app1\static\assets\images\icons\payment.png" />
+    <Content Include="app1\static\assets\images\logo\footer-logo.png" />
+    <Content Include="app1\static\assets\images\logo\logo.png" />
+    <Content Include="app1\static\assets\images\partner\1.png" />
+    <Content Include="app1\static\assets\images\partner\2.png" />
+    <Content Include="app1\static\assets\images\partner\3.png" />
+    <Content Include="app1\static\assets\images\partner\4.png" />
+    <Content Include="app1\static\assets\images\product-image\1.webp" />
+    <Content Include="app1\static\assets\images\product-image\2.webp" />
+    <Content Include="app1\static\assets\images\product-image\3.webp" />
+    <Content Include="app1\static\assets\images\product-image\4.webp" />
+    <Content Include="app1\static\assets\images\product-image\5.webp" />
+    <Content Include="app1\static\assets\images\product-image\6.webp" />
+    <Content Include="app1\static\assets\images\product-image\7.webp" />
+    <Content Include="app1\static\assets\images\product-image\8.webp" />
+    <Content Include="app1\static\assets\images\product-image\small-image\1.webp" />
+    <Content Include="app1\static\assets\images\product-image\small-image\2.webp" />
+    <Content Include="app1\static\assets\images\product-image\small-image\3.webp" />
+    <Content Include="app1\static\assets\images\product-image\small-image\4.webp" />
+    <Content Include="app1\static\assets\images\product-image\small-image\5.webp" />
+    <Content Include="app1\static\assets\images\product-image\zoom-image\1.webp" />
+    <Content Include="app1\static\assets\images\product-image\zoom-image\2.webp" />
+    <Content Include="app1\static\assets\images\product-image\zoom-image\3.webp" />
+    <Content Include="app1\static\assets\images\product-image\zoom-image\4.webp" />
+    <Content Include="app1\static\assets\images\product-image\zoom-image\5.webp" />
+    <Content Include="app1\static\assets\images\review-image\1.png" />
+    <Content Include="app1\static\assets\images\review-image\2.png" />
+    <Content Include="app1\static\assets\images\team\1.webp" />
+    <Content Include="app1\static\assets\images\team\2.webp" />
+    <Content Include="app1\static\assets\images\team\3.webp" />
+    <Content Include="app1\static\assets\images\testimonial\1.png" />
+    <Content Include="app1\static\assets\images\testimonial\2.png" />
+    <Content Include="app1\static\assets\js\jquery.min.js" />
+    <Content Include="app1\static\assets\js\main.min.js" />
+    <Content Include="app1\static\assets\js\plugins.min.js" />
+    <Content Include="app1\static\assets\js\plugins\jquery.countdown.min.js" />
+    <Content Include="app1\static\assets\js\vendor.min.js" />
+    <Content Include="app1\static\assets\js\vendor\jquery-3.6.0.min.js" />
+    <Content Include="app1\static\assets\plugins\bootstrap-toastr\toastr.css" />
+    <Content Include="app1\static\assets\plugins\bootstrap-toastr\toastr.js" />
+    <Content Include="app1\static\assets\plugins\bootstrap-toastr\toastr.min.css" />
+    <Content Include="app1\static\assets\plugins\bootstrap-toastr\toastr.min.js" />
+    <Content Include="app1\static\css\cart\cart_detail.css" />
+    <Content Include="app1\static\css\cart\checkout.css" />
+    <Content Include="app1\static\css\cart\placeorder.css" />
+    <Content Include="app1\static\css\cart\success.css" />
+    <Content Include="app1\static\css\cart\wishlist.css" />
+    <Content Include="app1\static\css\Login\forgot.css" />
+    <Content Include="app1\static\css\Login\forgotOtp.css" />
+    <Content Include="app1\static\css\Login\login.css" />
+    <Content Include="app1\static\css\Login\newpassword.css" />
+    <Content Include="app1\static\css\Login\register.css" />
+    <Content Include="app1\static\css\Login\SignupAuthentication.css" />
+    <Content Include="app1\static\css\Master\home.css" />
+    <Content Include="app1\static\css\Master\master.css" />
+    <Content Include="app1\static\css\Master\product.css" />
+    <Content Include="app1\static\css\MyAccount\myaccount.css" />
+    <Content Include="app1\static\images\download.png" />
+    <Content Include="app1\static\js\cart\cart_detail.js" />
+    <Content Include="app1\static\js\cart\checkout.js" />
+    <Content Include="app1\static\js\cart\placeorder.js" />
+    <Content Include="app1\static\js\cart\tracking.js" />
+    <Content Include="app1\static\js\cart\wishlist.js" />
+    <Content Include="app1\static\js\Login\forgot.js" />
+    <Content Include="app1\static\js\Login\forgotOtp.js" />
+    <Content Include="app1\static\js\Login\login.js" />
+    <Content Include="app1\static\js\Login\newpassword.js" />
+    <Content Include="app1\static\js\Login\signup.js" />
+    <Content Include="app1\static\js\Login\SignupAuthentication.js" />
+    <Content Include="app1\static\js\Master\home.js" />
+    <Content Include="app1\static\js\Master\master.js" />
+    <Content Include="app1\static\js\Master\product.js" />
+    <Content Include="app1\static\js\MyAccount\myaccount.js" />
+    <Content Include="app1\templates\cart\cart_detail.html" />
+    <Content Include="app1\templates\cart\checkout.html" />
+    <Content Include="app1\templates\cart\placeorder.html" />
+    <Content Include="app1\templates\cart\success.html" />
+    <Content Include="app1\templates\cart\tracking.html" />
+    <Content Include="app1\templates\cart\wishlist.html" />
+    <Content Include="app1\templates\Login\forgot.html" />
+    <Content Include="app1\templates\Login\forgotOtp.html" />
+    <Content Include="app1\templates\Login\login.html" />
+    <Content Include="app1\templates\Login\newpassword.html" />
+    <Content Include="app1\templates\Login\register.html" />
+    <Content Include="app1\templates\Login\SignupAuthentication.html" />
+    <Content Include="app1\templates\Master\home.html" />
+    <Content Include="app1\templates\Master\master.html" />
+    <Content Include="app1\templates\Master\product.html" />
+    <Content Include="app1\templates\MyAccount\myaccount.html" />
+    <Content Include="app1\__pycache__\admin.cpython-310.pyc" />
+    <Content Include="app1\__pycache__\apps.cpython-310.pyc" />
+    <Content Include="app1\__pycache__\models.cpython-310.pyc" />
+    <Content Include="app1\__pycache__\urls.cpython-310.pyc" />
+    <Content Include="app1\__pycache__\views.cpython-310.pyc" />
+    <Content Include="app1\__pycache__\__init__.cpython-310.pyc" />
+    <Content Include="db.sqlite3" />
+    <Content Include="Ecommerce\__pycache__\settings.cpython-310.pyc" />
+    <Content Include="Ecommerce\__pycache__\urls.cpython-310.pyc" />
+    <Content Include="Ecommerce\__pycache__\wsgi.cpython-310.pyc" />
+    <Content Include="Ecommerce\__pycache__\__init__.cpython-310.pyc" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app1\" />
+    <Folder Include="app1\migrations\" />
+    <Folder Include="app1\static\" />
+    <Folder Include="app1\static\assets\" />
+    <Folder Include="app1\static\assets\css\" />
+    <Folder Include="app1\static\assets\fonts\" />
+    <Folder Include="app1\static\assets\images\" />
+    <Folder Include="app1\static\assets\images\about\" />
+    <Folder Include="app1\static\assets\images\banner\" />
+    <Folder Include="app1\static\assets\images\blog-image\" />
+    <Folder Include="app1\static\assets\images\feature-image\" />
+    <Folder Include="app1\static\assets\images\hero\" />
+    <Folder Include="app1\static\assets\images\hero\inner-img\" />
+    <Folder Include="app1\static\assets\images\icons\" />
+    <Folder Include="app1\static\assets\images\logo\" />
+    <Folder Include="app1\static\assets\images\partner\" />
+    <Folder Include="app1\static\assets\images\product-image\" />
+    <Folder Include="app1\static\assets\images\product-image\small-image\" />
+    <Folder Include="app1\static\assets\images\product-image\zoom-image\" />
+    <Folder Include="app1\static\assets\images\review-image\" />
+    <Folder Include="app1\static\assets\images\team\" />
+    <Folder Include="app1\static\assets\images\testimonial\" />
+    <Folder Include="app1\static\assets\js\" />
+    <Folder Include="app1\static\assets\js\plugins\" />
+    <Folder Include="app1\static\assets\js\vendor\" />
+    <Folder Include="app1\static\assets\plugins\" />
+    <Folder Include="app1\static\assets\plugins\bootstrap-toastr\" />
+    <Folder Include="app1\static\css\" />
+    <Folder Include="app1\static\css\cart\" />
+    <Folder Include="app1\static\css\Login\" />
+    <Folder Include="app1\static\css\Master\" />
+    <Folder Include="app1\static\css\MyAccount\" />
+    <Folder Include="app1\static\images\" />
+    <Folder Include="app1\static\js\" />
+    <Folder Include="app1\static\js\cart\" />
+    <Folder Include="app1\static\js\Login\" />
+    <Folder Include="app1\static\js\Master\" />
+    <Folder Include="app1\static\js\MyAccount\" />
+    <Folder Include="app1\templates\" />
+    <Folder Include="app1\templates\cart\" />
+    <Folder Include="app1\templates\Login\" />
+    <Folder Include="app1\templates\Master\" />
+    <Folder Include="app1\templates\MyAccount\" />
+    <Folder Include="app1\__pycache__\" />
+    <Folder Include="Ecommerce\" />
+    <Folder Include="Ecommerce\__pycache__\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
